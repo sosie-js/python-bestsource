@@ -1,4 +1,4 @@
-# The python Bestsource hlper
+# The python Bestsource helper
 
 The audio support in vapoursynth has always been a piece of puzzle with headache
 to compile plugins on linux . Till now was based on bestaudio plugin and lsmas. 
@@ -14,7 +14,7 @@ ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=1843
 ## Demo
 
 
-![Demo live]()
+![Demo live](https://github.com/sosie-js/python-bestsource/blob/1.0.0/icons/screenshot.png)
 
 
 ## Installation 
