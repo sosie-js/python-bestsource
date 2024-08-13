@@ -16,18 +16,6 @@ to fix bug in main/window.py that has been handled in new version of vspreview. 
 is you upgrade your python version due to requirement in one dependency vstools to have the fix done 
 with new versions of vspreview. 
 
->The choice for authors of vspreview not wanting to fix broken old versions for reason of time
->and efficiency,  not taking account current shipped version of Ubuntu claiming fixes has been done 
->with recent versions. Howvever this means focrcing everybody to upgrade python to make it work - 
->this choice exludes however normal ubuntu end users stalled with python 3.10.
->Refusing contributions and  considering everyone is working in a developper destop env 
->is another thing that does not allow arrogance as a group of developpers a place to insult others. 
-
-For now what we can expect is from this: player stalling and sound goes outside boundaries when you insists
-on resuming play. It may have bee fixed in latest release of vspreview.
->It is not quite clear that it comes from vspreview as the trim part is still experimental and
->when I trimed to the length of video making normally the video untouched, the audio problems arise.
-
 ### frame.vpy
 
 Show frame props of a clip different ways. Under scite you can trigger vspreview with [F5]
@@ -53,7 +41,17 @@ For those who want to bridge to [arch1tech's aegisub fork](https://github.com/ar
 
 ## Limitations / Considerations
 
-I for now wondering if the userplugin path should be aegisub vapoursynth directory ?data/vapoursynth where bestsource should be installed like in windows letting the system plugin only core plugins. I have to stabilize plugin generation script before and make vspreview working ..I get annoyed lately by env stuff to make vspreview happy with python.
+>The choice for authors of vspreview not wanting to fix broken old versions for reason of time
+>and efficiency,  not taking account current shipped version of Ubuntu claiming fixes has been done 
+>with recent versions. Howvever this means focrcing everybody to upgrade python to make it work - 
+>this choice exludes however normal ubuntu end users stalled with python 3.10.
+>Refusing contributions and  considering everyone is working in a developper destop env 
+>is another thing that does not allow arrogance as a group of developpers a place to insult others. 
+
+For now what we can expect is from this: player stalling and sound goes outside boundaries when you insists
+on resuming play. It may have bee fixed in latest release of vspreview.
+>It is not quite clear that it comes from vspreview as the trim part is still experimental and
+>when I trimed to the length of video making normally the video untouched, the audio problems arise.
 
 ## History
 
