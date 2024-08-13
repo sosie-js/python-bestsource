@@ -1,4 +1,4 @@
-# <img src="https://github.com/sosie-js/python-bestsource/raw/main/icons/pythondia.png" alt="logo" width="32"> python-bestsource
+# <img src="https://github.com/sosie-js/python-bssource/blob/1.0.0/icons/python-bssource.png?raw=true" alt="logo" width="32"> python-bestsource
 
 [![Python](https://img.shields.io/badge/Python%20-any-blue)](https://www.python.org/)
 
