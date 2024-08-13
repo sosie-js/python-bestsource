@@ -6,15 +6,15 @@ with open("README.md", 'r') as fh:
 requirements = [ "setuptools"]  # This could be retrieved from requirements.txt# Package (minimal) configuration
 
 setup(
-    name="python-bssource",
+    name="python-bestsource",
     version="1.0.0",
     description="Python helpers to manipulate video from vapoursynth",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Olivier Lutzwiller",
+    author="sosie-js",
     author_email="sosie@sos-productions.com",
     keywords="vapoursynth python bestsource helper",
-    url="http://github.com/sosie-js/python-bssource",
+    url="http://github.com/sosie-js/python-bestsource",
     license='GPL',
     classifiers=[
         'Development Status :: 4 - Beta',

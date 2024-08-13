@@ -1,6 +1,6 @@
 # <img src="https://github.com/sosie-js/python-bssource/blob/1.0.0/icons/python-bssource.png?raw=true" alt="logo" width="32"> python-bestsource
 
-[![Python](https://img.shields.io/badge/Python%20-any-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python%20->=3.10-blue)](https://www.python.org/) ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)  
 
 A library helper for producing and manipulating videos with audio support in vapoursynth using [bestsource](https://github.com/vapoursynth/bestsource)
 
