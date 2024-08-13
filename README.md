@@ -46,8 +46,9 @@ and efficiency, claiming fixes has been done with recent versions is understable
 >However,this means forcing everybody to upgrade python to make it work - 
 >this choice exludes normal ubuntu end users stalled with python 3.10.
 
->Refusing contributions and  considering everyone is working in a developper destop env 
->is another thing that does not allow arrogance as a group of developpers a place to insult others. 
+In addition refusing contributions and considering everyone is working in a developper 
+destop env is another thing 
+>this does not allow arrogance as a group of developpers a place to insult others. 
 
 For now what we can expect is from this: player stalling and sound goes outside boundaries when you insists
 on resuming play. It may have bee fixed in latest release of vspreview.
