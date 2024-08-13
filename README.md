@@ -41,10 +41,10 @@ For those who want to bridge to [arch1tech's aegisub fork](https://github.com/ar
 
 ## Limitations / Considerations
 
->The choice for authors of vspreview not wanting to fix broken old versions for reason of time
->and efficiency,  not taking account current shipped version of Ubuntu claiming fixes has been done 
->with recent versions. Howvever this means focrcing everybody to upgrade python to make it work - 
->this choice exludes however normal ubuntu end users stalled with python 3.10.
+The choice for authors of vspreview not wanting to fix broken old versions for reason of time
+and efficiency,  not taking account current shipped version of Ubuntu claiming fixes has been done 
+with recent versions. Howvever this means focrcing everybody to upgrade python to make it work - 
+this choice exludes however normal ubuntu end users stalled with python 3.10.
 >Refusing contributions and  considering everyone is working in a developper destop env 
 >is another thing that does not allow arrogance as a group of developpers a place to insult others. 
 
