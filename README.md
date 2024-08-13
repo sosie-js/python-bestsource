@@ -43,12 +43,14 @@ For those who want to bridge to [arch1tech's aegisub fork](https://github.com/ar
 
 The choice for authors of vspreview not wanting to fix broken old versions for reason of time
 and efficiency, claiming fixes has been done with recent versions is understable. 
->However,this means forcing everybody to upgrade python to make it work - 
->this choice exludes normal ubuntu end users stalled with python 3.10.
+>However, this means forcing everybody to upgrade python to the latest release to make it work 
+>this requirement exludes normal ubuntu end users stalled with python 3.10. 
+>Python support does not follow such a rule and let two precedent version open. 
 
 In addition refusing contributions and considering everyone is working in a developper 
 destop env is another thing 
->this does not allow arrogance as a group of developpers a place to insult others. 
+>Normally, this does not allow arrogance as a group of developpers a place to insult 
+>others and trigger ban first to show their superiority and then dicussion.
 
 For now what we can expect is from this: player stalling and sound goes outside boundaries when you insists
 on resuming play. It may have bee fixed in latest release of vspreview.
