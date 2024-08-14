@@ -2,7 +2,7 @@
 
 The audio support in vapoursynth has always been a piece of puzzle with headache
 to compile plugins on linux . Till now was based on bestaudio plugin and lsmas. 
-The new comer bestsource change the horizon but its integration and doc are not clear.
+The new comer [bestsource](https://github.com/vapoursynth/bestsource) changes the horizon but its integration and doc are not clear.
 
 
 ## Motivations
