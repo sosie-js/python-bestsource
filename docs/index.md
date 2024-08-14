@@ -19,7 +19,7 @@ ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=1843
 
 ## Installation 
 
-I use scite to trigger vspreview by pressing [F5] after adding the /etc/scite/vapoursynth.properties
+I use [scite](https://scintilla.org/SciTE.html) , a lightweight editor to trigger vspreview by pressing [F5] (or compile) after adding the /etc/scite/vapoursynth.properties
 ```
 # Define SciTE settings for Vapoursynth Python files.
 
