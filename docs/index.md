@@ -14,7 +14,7 @@ ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=1843
 ## Demo
 
 
-![Demo live](https://github.com/sosie-js/python-bestsource/blob/1.0.0/icons/screenshot.png)
+![Demo live](screenshot.png)
 
 
 ## Installation 
@@ -192,6 +192,9 @@ command.name.1.$(file.patterns.vpy)=Compile
 command.1.$(file.patterns.vpy)=$(python.command) "$(FilePath)"
 ```
  
+## Dev an contributions
+
+Have a look on my repository on github [python-bestsource](https://github.com/sosie-js/python-bestsource)
 
 ## Plugins
 
