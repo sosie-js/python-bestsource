@@ -14,7 +14,7 @@ ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=1843
 ## Demo
 
 
-![Demo live](screenshot.png)
+![Demo live](https://sosie-js.github.io/python-bestsource/screenshot.png)
 
 
 ## Installation 
