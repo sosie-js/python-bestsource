@@ -100,7 +100,11 @@ $ ./package.sh
 ```shell
 $ python3 -m pip install --user --upgrade twine
 ```
-3. Upload the bundle
+3. Build the wheel bundle (.egg no more recongnized) 
+```shell
+$ sudo rm -rf dist/&sudo rm -rf build&sudo python3 setup.py bdist_wheel
+```
+4. Upload the bundle
 ```shell
 $ python3 -m twine upload dist/*
 ```
