@@ -23,7 +23,8 @@ or compile - In test I let you the scite config file. Both works fine for a non 
 
 ### aegisub audio tests support in vapoursynth
 
-This requires vapoursynth fork from Arch1t3cht , two subtitles files are provided:
+This requires vapoursynth fork from Arch1t3cht and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) 
+for vapoursynth plugin dir configuration. Two subtitles files are provided:
 
 Open tests/VTS_01_1-trim100.ass
 then tests/VTS_01_1-trim100.vpy delivers video as channel 0 and audio as channel 1
