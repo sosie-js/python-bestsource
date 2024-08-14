@@ -9,7 +9,7 @@ The new comer bestsource change the horizon but its integration and doc are not 
 
 I just needed to be able to trim videos with audio with vapoursynth avoiding
 to encode video with ffmpeg. This topic is not new and [started far far 
-ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=184300).
+ago on Doom9 forums](https://forum.doom9.org/showthread.php?t=184300).
 
 ## Demo
 
@@ -17,9 +17,20 @@ ago on Doom9 forums long long ago](https://forum.doom9.org/showthread.php?t=1843
 ![Demo live](https://sosie-js.github.io/python-bestsource/screenshot.png)
 
 
+## Dev and contributions
+
+Have a look on my repository on github [python-bestsource](https://github.com/sosie-js/python-bestsource)
+
+## vapoursynth plugins on linux
+
+I recommend to use script [hybrid vapourynth addon](https://github.com/Selur/hybrid-vapoursynth-addon) from Selur to compile lsmas, bestsource, wwxd. A big talk on porting vapoursynth plugins on linux [can be found here](https://github.com/vapoursynth/vapoursynth/issues/1064)
+
 ## Installation 
 
 I use [scite](https://scintilla.org/SciTE.html) , a lightweight editor to trigger vspreview by pressing [F5] (or compile) after adding the /etc/scite/vapoursynth.properties
+
+It requires at least version 1.6.0 of [peagisub](https://github.com/sosie-js/peagisub-vs) for vapoursynth plugins path configuration.
+
 ```
 # Define SciTE settings for Vapoursynth Python files.
 
@@ -191,12 +202,6 @@ if PLAT_MAC
 command.name.1.$(file.patterns.vpy)=Compile
 command.1.$(file.patterns.vpy)=$(python.command) "$(FilePath)"
 ```
- 
-## Dev an contributions
 
-Have a look on my repository on github [python-bestsource](https://github.com/sosie-js/python-bestsource)
 
-## Plugins
-
-I recommend to use script [hybrid vapourynth addon](https://github.com/Selur/hybrid-vapoursynth-addon) from Selur to compile lsmas, bestsource, wwxd. A big talk on porting vapoursynth plugins on linux [can be found here](https://github.com/vapoursynth/vapoursynth/issues/1064)
 
