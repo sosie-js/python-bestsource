@@ -21,6 +21,22 @@ with new versions of vspreview.
 Show frame props of a clip different ways. Under scite you can trigger vspreview with [F5]
 or compile - In test I let you the scite config file. Both works fine for a non trimed video. 
 
+### aegisub audio tests support in vapoursynth
+
+This requires vapoursynth fork from Arch1t3cht , two subtitles files are provided:
+
+Open tests/VTS_01_1-trim100.ass
+then tests/VTS_01_1-trim100.vpy delivers video as channel 0 and audio as channel 1
+this is not supported by current release that disable Open AUdio from Video feature. 
+I did not find a way to know which type of channel audio or video is requested.
+I opened thus a [Request for feature](https://github.com/arch1t3cht/Aegisub/issues/148)
+
+Open tests/VTS_01_1-trim100-video-audio.ass 
+then tests/VTS_01_1-trim100-video.vpy delivers video  as channel 0 
+then tests/VTS_01_1-trim100-audio.vpy delivers audio  as channel 0 (separately in time)
+this works if you ensure plays does not goes outside boundary ie frame 101
+else you will be flooded by popups. Play and seeking work fine and did not stall in middle.
+
 ## Installation
 
 as local user
