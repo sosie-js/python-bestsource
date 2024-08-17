@@ -4,6 +4,10 @@
 
 A library helper for producing and manipulating videos with audio support in vapoursynth using [bestsource](https://github.com/vapoursynth/bestsource)
 
+New:
+Update script to peagisub 1.7.0 that add better handling error support and asking user to create the config file/
+
+
 ## Current state
 
 Sound is working with vspreview as soon as Track1 is selected in the Playback sub panel hidden by default and play is triggered
@@ -24,20 +28,25 @@ or compile - In test I let you the scite config file. Both works fine for a non 
 ### aegisub audio tests support in vapoursynth
 
 This requires vapoursynth fork from Arch1t3cht and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) 
-for vapoursynth plugin dir configuration. Two subtitles files are provided:
+for vapoursynth plugin dir configuration. Two subtitles files are provided (1+2) and a probe system (3):
 
-Open tests/VTS_01_1-trim100.ass
+(1) Open tests/VTS_01_1-trim100.ass
 then tests/VTS_01_1-trim100.vpy delivers video as channel 0 and audio as channel 1
 this is not supported by current release that disable Open AUdio from Video feature. 
 >As I did not find a way to know which type of channel audio or video is requested.
 >I opened thus a [Request for feature](https://github.com/arch1t3cht/Aegisub/issues/148)
 
-Open tests/VTS_01_1-trim100-video-audio.ass 
+(2) Open tests/VTS_01_1-trim100-video-audio.ass 
 then tests/VTS_01_1-trim100-video.vpy delivers video  as channel 0 
 then tests/VTS_01_1-trim100-audio.vpy delivers audio  as channel 0 (separately in time)
 >this works if you ensure plays does not goes outside boundary ie frame 101
 >else you will be flooded by popups. Play and seeking work fine and did not stall in middle
 >there is just a minor problem with the horizonthal zoom for audio
+
+(3) Open  tests/VTS_01_1-trim100.py and discover weird behavior on the audio side when Video
+is trimmed to the length of the video. Normally this sould do nothing but I discovered it
+affects unexpectedly audio frames, revelaing maybe a hidden num_frames count shift.
+
 
 ## Installation
 
