@@ -1,8 +1,8 @@
 """
 File name: bssource.py
 Author: sosie-js / github 
-Created: 10.08.2024
-Version: 1.0
+Created: 17.08.2024
+Version: 1.1
 Thanks to: Arch1t3cht for aegisub-vs.py code parts of this are inspired from
                 _AI_ for the Clip class I extended
 Usage: 
@@ -51,10 +51,10 @@ import logging, os, sys
 """
 File name: aegisub-vs.py
 Author: sosie-js / github 
-Created: 09.08.2024
-Version: 1.6
+Created: 17.08.2024
+Version: 1.7
 Description: Bridge to vapoursynth using lua config helper 
-peagisub (luarocks install --local peagisub-vs 1.6.0)
+peagisub (luarocks install --local peagisub-vs 1.7.0)
 """
 
 from dataclasses import dataclass, field
@@ -215,6 +215,12 @@ class Clip:
         
     def log_debug(self, message):
         vs.core.log_message(vs.MESSAGE_TYPE_DEBUG, message)       
+        
+    def sample_rate(self):
+        asr=0
+        if(not self.audio is None): #retrieval method succeed         
+            asr= str(self.audio.seample_rate) 
+        return asr    
         
     def fps(self):
         fps=0
