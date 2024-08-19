@@ -27,7 +27,7 @@ I recommend to use script [hybrid vapourynth addon](https://github.com/Selur/hyb
 
 ## Installation 
 
-It requires a working vepoursynth env, and at least version 1.6.0 of [peagisub](https://github.com/sosie-js/peagisub-vs) for vapoursynth plugins path configuration.
+It requires a working vapoursynth env, and at least version 1.7.0 of [peagisub](https://github.com/sosie-js/peagisub-vs) for vapoursynth plugins path configuration.
 
 I use [scite](https://scintilla.org/SciTE.html) , a lightweight editor to trigger vspreview by pressing [F5] (or compile) after adding the /etc/scite/vapoursynth.properties
 
