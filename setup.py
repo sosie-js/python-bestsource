@@ -7,7 +7,7 @@ requirements = [ "setuptools"]  # This could be retrieved from requirements.txt#
 
 setup(
     name="python-bestsource",
-    version="1.0.0",
+    version="1.1.0",
     description="Python helpers to manipulate video from vapoursynth",
     long_description=long_description,
     long_description_content_type="text/markdown",

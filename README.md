@@ -6,33 +6,31 @@ A library helper for producing and manipulating videos with audio support in vap
 
 ## Current state
 
-Sound is working with vspreview as soon as Track1 is selected in the Playback sub panel hidden by default and play is triggered
-for a video that has sound and has not been trimmed. I provide a test video in test/ and two examples scripts
+Version 1.1 fixes the bug occuring in last trimmed part that [needed end clamping.Big thank to myrsloik !](https://github.com/vapoursynth/vapoursynth/issues/1084)
+
+Sound is working with vspreview as soon as Track1 is selected in the Playback sub panel hidden by default and play is triggered for a video that has sound. I provide a test video in test/ and two examples scripts
 
 ### trim.vpy: 
 
-Shows how trim is handled with video that has sound - the player I used is a forked vspreview 0.7.1 
-to fix bug in main/window.py that has been handled in new version of vspreview. Easy answer from authors 
-is you upgrade your python version due to requirement in one dependency vstools to have the fix done 
-with new versions of vspreview. 
+Shows how trim is handled with video that has sound - the player I used is a forked [release of vspreview 0.7.1 is available here](https://github.com/sosie-js/vs-preview/releases/tag/v0.7.1-ubuntu22.04) is for users using a [still supported python 3.10 version](https://pyreadiness.org/3.10/) as ubuntu 22.04 user, install it using the git way.
 
 ### frame.vpy
 
 Show frame props of a clip different ways. Under scite you can trigger vspreview with [F5]
-or compile - In test I let you the scite config file. Both works fine for a non trimed video. 
+or compile - In test I let you the scite config file. 
 
 ### aegisub audio tests support in vapoursynth
 
 This requires vapoursynth fork from Arch1t3cht and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) 
-for vapoursynth plugin dir configuration. Two subtitles files are provided:
+for vapoursynth plugin dir configuration. Two subtitles files are provided (1+2) and a probe system (3):
 
-Open tests/VTS_01_1-trim100.ass
+(1) Open tests/VTS_01_1-trim100.ass
 then tests/VTS_01_1-trim100.vpy delivers video as channel 0 and audio as channel 1
 this is not supported by current release that disable Open AUdio from Video feature. 
 >As I did not find a way to know which type of channel audio or video is requested.
 >I opened thus a [Request for feature](https://github.com/arch1t3cht/Aegisub/issues/148)
 
-Open tests/VTS_01_1-trim100-video-audio.ass 
+(2) Open tests/VTS_01_1-trim100-video-audio.ass 
 then tests/VTS_01_1-trim100-video.vpy delivers video  as channel 0 
 then tests/VTS_01_1-trim100-audio.vpy delivers audio  as channel 0 (separately in time)
 >this works if you ensure plays does not goes outside boundary ie frame 101
@@ -53,31 +51,11 @@ for all
 sudo pip3 install python-bssource
 ```
 
-
 For those who want to bridge to [arch1tech's aegisub fork](https://github.com/arch1t3cht/Aegisub/tree/vapoursynth), use my lua helper [peagisub](https://github.com/sosie-js/peagisub-vs) to get the path of the vapoursynth plugin needed by aegisub_vs.py. 
-
-
-## Limitations / Considerations
-
-The choice for authors of vspreview not wanting to fix broken old versions for reason of time
-and efficiency, claiming fixes has been done with recent versions is understable. 
->However, this means forcing everybody to upgrade python to the latest release to make it work 
->this requirement exludes normal ubuntu end users stalled with python 3.10. 
->Python support does not follow such a rule and let two precedent version open. 
-
-In addition refusing contributions and considering everyone is working in a developper 
-destop env is another thing 
->Normally, this does not allow arrogance as a group of developpers a place to insult 
->others and trigger ban first to show their superiority and then dicussion.
-
-For now what we can expect is from this: player stalling and sound goes outside boundaries when you insists
-on resuming play. It may have bee fixed in latest release of vspreview.
->It is not quite clear that it comes from vspreview as the trim part is still experimental and
->when I trimed to the length of video making normally the video untouched, the audio problems arise.
 
 ## History
 
-
+**1.1.0** - Trim with video that has audio works in both aegisub and vspreview!
 **1.0.0** - First release
 
 

@@ -1,10 +1,11 @@
 """
 File name: bssource.py
 Author: sosie-js / github 
-Created: 17.08.2024
+Created: 19.08.2024
 Version: 1.1
-Thanks to: Arch1t3cht for aegisub-vs.py code parts of this are inspired from
-                _AI_ for the Clip class I extended
+Thanks to: Arch1t3cht for aegisub-vs.py code parts of this are inspired from https://github.com/arch1t3cht/Aegisub/
+                _AI_ for the Clip class I extended from https://forum.doom9.org/showthread.php?t=184300
+                myrsloik that suggested clamping in https://github.com/vapoursynth/vapoursynth/issues/1084
 Usage: 
 1)Create a test.vpy script like:
 -------------------8<-------Start-------------------------------------------------------
@@ -144,12 +145,12 @@ clip = clip + clip
 #clip.audio.set_output(1)
 AudioDub(clip.video,clip.audio)
 """
-## https://amusementclub.github.io/doc/pythonreference.html#VideoNode
+
 @dataclass 
 class Clip:    
     def __init__(self, video = None, audio=None, attribute_audio_path=None,force_audio=True):
-        self.video = video
-        self.audio = audio
+        self.video = video  ## http://www.vapoursynth.com/doc/pythonreference.html#VideoNode
+        self.audio = audio ## http://www.vapoursynth.com/doc/pythonreference.html#AudioNode
         if self.video is None:
             self.video = core.std.BlankClip()
         
@@ -167,6 +168,29 @@ class Clip:
             length = int(attr_audio.sample_rate/self.video.fps*self.video.num_frames)
             self.audio = attr_audio.std.BlankAudio(length=length)
 
+
+    def _AudioTrim(self,  **kwargs):
+        """
+        Clamp to the end version to solver AudioTrim: last sample beyond clip end
+        return self.audio.std.AudioTrim(first=afirst,last=alast,length=alength) produces sometimes
+        """
+        for key, value in kwargs.items():
+            ##print(f"{key}: {value}")
+            if key=='first' :
+                afirst=value
+            if key == 'last':
+                alast=value
+            if key == 'length':
+                alength =value
+        
+        if(alast  is not None and alast > (len(self.audio)-1)):
+            alast=len(self.audio)-1
+            #keep a track of the clamping for dump
+            self.alast=alast
+
+        return self.audio.std.AudioTrim(first=afirst,last=alast,length=alength)
+
+
     def trim(self, first=0, last=None, length=None):
     
         global DUMP_TRIM
@@ -175,7 +199,7 @@ class Clip:
         alast   = self.to_samples(last+1)-1 if last   is not None else None
         alength = self.to_samples(length)   if length is not None else None
         clip=Clip( self.video.std.Trim(first=first, last=last, length=length),
-                     self.audio.std.AudioTrim(first=afirst,last=alast,length=alength)
+                     self._AudioTrim(first=afirst,last=alast,length=alength)
                     )
                     
         if DUMP_TRIM:
