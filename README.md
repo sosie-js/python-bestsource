@@ -65,7 +65,7 @@ Feel free to add other object and fixes.
 
 ## Development
 
-### Compile .egg
+### Compile .whl
 
 ```shell
 $ ./package.sh
@@ -78,7 +78,7 @@ $ ./package.sh
 ```shell
 $ python3 -m pip install --user --upgrade twine
 ```
-3. Build the wheel bundle (.egg no more recongnized) 
+3. Build the wheel bundle (.egg no more recognized) 
 ```shell
 $ sudo rm -rf dist/&sudo rm -rf build&sudo python3 setup.py bdist_wheel
 ```
