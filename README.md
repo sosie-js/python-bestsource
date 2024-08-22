@@ -19,7 +19,7 @@ Shows how trim is handled with video that has sound - the player I used is a for
 Show frame props of a clip different ways. Under scite you can trigger vspreview with [F5]
 or compile - In test I let you the scite config file. 
 
-### aegisub audio tests support in vapoursynth
+### Audio and Sub Range tests support in Aegisub (.ass) / vspreview (.vpy) 
 
 This requires vapoursynth fork from Arch1t3cht and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) 
 for vapoursynth plugin dir configuration. Two subtitles files are provided (1+2) and a probe system (3):
