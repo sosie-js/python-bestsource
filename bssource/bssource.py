@@ -1,8 +1,8 @@
 """
 File name: bssource.py
 Author: sosie-js / github 
-Created: 19.08.2024
-Version: 1.1
+Created: 22.08.2024
+Version: 1.2
 Thanks to: Arch1t3cht for aegisub-vs.py code parts of this are inspired from https://github.com/arch1t3cht/Aegisub/
                 _AI_ for the Clip class I extended from https://forum.doom9.org/showthread.php?t=184300
                 myrsloik that suggested clamping in https://github.com/vapoursynth/vapoursynth/issues/1084
@@ -161,6 +161,8 @@ class Clip:
         self.alast=None
         self.alength=None
         
+        self.filters= {}
+        
         if self.audio is None and force_audio:
             if attribute_audio_path is None:
                 raise ValueError('argument attribute_audio_path is needed to get default audio for images (could be a really short video')
@@ -168,6 +170,9 @@ class Clip:
             length = int(attr_audio.sample_rate/self.video.fps*self.video.num_frames)
             self.audio = attr_audio.std.BlankAudio(length=length)
 
+
+    def register(self, method, function):
+        self.filters[method] = function
 
     def _AudioTrim(self,  **kwargs):
         """
@@ -243,7 +248,7 @@ class Clip:
     def sample_rate(self):
         asr=0
         if(not self.audio is None): #retrieval method succeed         
-            asr= str(self.audio.seample_rate) 
+            asr= str(self.audio.sample_rate) 
         return asr    
         
     def fps(self):
@@ -560,13 +565,102 @@ def Trim(start,end):
     global __clip__
     return __clip__.trim(first=start, last=end)
     
-def TextSub( subfile,clip=None):
+    
+def TextSub( subfile, clip=None,first=None, last=None ):
     global __clip__
+   
     if clip is None:
-        __clip__.video=vs.core.assrender.TextSub(__clip__.video,subfile)
+        #__clip__.video=vs.core.assrender.TextSub(__clip__.video,subfile)
+        __clip__.video=TextSub( subfile, __clip__.video, first, last)
         return __clip__
     else:
-        return  vs.core.assrender.TextSub(clip.video,subfile)
+        if type(clip) is Clip:
+            #vs.core.assrender.TextSub(clip.video,subfile
+            clip.video=TextSub( subfile, clip.video, first, last)
+            return clip
+        elif type(clip) is vs.VideoNode:
+            video=clip
+            if first is None and last is None:
+                try:
+                    return vs.core.assrender.TextSub(video,subfile)
+                except vs.Error:
+                    raise ValueError(subfile)
+            else:
+                if last is None:
+                    last= len(video)-1
+                if first is None:
+                    first=0
+                
+                def range_view(n: int, f: vs.VideoFrame,
+                     clip: vs.VideoNode, first : int, last: int)  -> vs.VideoNode:
+                           
+                    v=clip #core.text.ClipInfo(clip)
+                                 
+                    infos=[]
+                     
+                    if(n >= first and n <=last) :
+                        #   
+                        #    infos.append(str(first)+"<="+str(n)+"<="+str(last))
+                        #      
+                        #    for prop, prop_value in CurrentClip().info().items():
+                        #        infos.append(prop+"="+str(prop_value))
+                        #       
+                        #   v=core.text.Text(v,  "\n".join(infos), alignment=9, scale=1) 
+                        #      
+                        v=TextSub(subfile,v)
+                        
+                    return v
+                
+                from functools import partial
+                return video.std.FrameEval(partial(range_view, clip=video,first=first, last=last), prop_src=video)
+                
+### ApplyRange mimic stuff##     
+
+"""
+Register a filter by its name and function body
+str name: filter name
+function : should match def function () 
+"""
+def Register(name,function):
+    global __clip__
+    __clip__.register(name,function)
+    
+"""
+Retrieve filter function using filter name previeoisly registered
+returns function
+"""
+def Filter(name):
+    global __clip__
+    return __clip__.filters[name]
+    
+"""
+clip:Clip|vs.VideoNode|None If None use current active Clip
+start_frame:int start frame to apply Filter
+end_frame:int end frame to apply Filter
+filtername: a registered filter see Register(name, function)
+args:Dict a list with args to pass to the filter
+return the same type of clip but with the filter applied from start_frame to end_frame
+"""
+def ApplyRange (clip, start_frame:int, end_frame:int, filtername:str, args: Dict):
+    global __clip__
+    first=start_frame
+    last=end_frame
+    if clip is None:
+        __clip__.video=ApplyRange (__clip__.video, start_frame, end_frame, filtername, args)
+        return __clip__
+    else:
+        if type(clip) is Clip:
+            return  ApplyRange (clip.video, start_frame, end_frame, filtername, args)
+        elif type(clip) is vs.VideoNode:
+            if filtername not in __clip__.filters:
+                 raise NotImplementedError("Method %s not implemented" % filtername)
+            filter=Filter(filtername)
+            v=filter(**args)
+           
+            return  clip.std.Trim(first=0, last=first-1)+v.std.Trim(first,last)+clip.std.Trim(last+1,len(v)-1)
+            
+###############
+
 
 def Video(clip=None):
     global __clip__
