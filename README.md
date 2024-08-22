@@ -4,6 +4,13 @@
 
 A library helper for producing and manipulating videos with audio support in vapoursynth using [bestsource](https://github.com/vapoursynth/bestsource)
 
+## Requirements
+
+>This requires vapoursynth fork from Arch1t3cht
+> and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) for vapoursynth plugin dir configuration.
+ or
+>scite combined with vspreview to view .vpy files , for jammy ubuntu users I longly discussed how to install in [my fork of vspreview 0.7.1](https://github.com/sosie-js/vs-preview) you can only install with the git method  `pip3 install -U git+https://github.com/sosie-js/vs-preview.git`
+
 ## Current state
 
 Version 1.2 bring filter range support with both ApplyRange and FrameEval in TextSub  : a door to make Animations easier in vapoursynth is now open =)
@@ -19,10 +26,9 @@ Shows how trim is handled with video that has sound - the player I used is a for
 Show frame props of a clip different ways. Under scite you can trigger vspreview with [F5]
 or compile - In test I let you the scite config file. 
 
-### Audio and Sub Range tests support in Aegisub (.ass) / vspreview (.vpy) 
+### Audio tests support 
 
-This requires vapoursynth fork from Arch1t3cht and the use of [peagisub](https://github.com/sosie-js/peagisub-vs) 
-for vapoursynth plugin dir configuration. Two subtitles files are provided (1+2) and a probe system (3):
+ Two subtitles files are provided (1+2):
 
 (1) Open tests/VTS_01_1-trim100.ass 
 then tests/VTS_01_1-trim100.vpy delivers video as channel 0 and audio as channel 1
@@ -39,16 +45,18 @@ then tests/VTS_01_1-trim100-audio.vpy delivers audio  as channel 0 (separately i
 >else you will be flooded by popups. Play and seeking work fine and did not stall just before the end as in vspreview
 >there is just a minor problem with the horizonthal zoom for audio
 
-(3) Open tests/VTS_01_1-trim100-applyrange.ass 
+### Sub Range tests 
+
+(1) Open tests/VTS_01_1-trim100-applyrange.ass 
 then tests/VTS_01_1-trim100-applyrange.vpy is used for video
 >This will show we have a portion from 50 to 60 of VTS_01_1-trim100.ass using a mimick AVS method ApplyRange
 
-(4) Open tests/VTS_01_1-trim100-frameval.ass
+(2) Open tests/VTS_01_1-trim100-frameval.ass
 then tests/VTS_01_1-trim100-frameval.vpy is used for video
 >This will show we have a portion from 50 to 60 of VTS_01_1-trim100.ass most similar of AVS Animate, you can
 grab the current frame number in the filter that ApplyRange do no handle. 
 
-(5) Open tests/VTS_01_1-trim100-range.ass
+(3) Open tests/VTS_01_1-trim100-range.ass
 then tests/VTS_01_1-trim100-frameval.vpy is used for video
 then tests/VTS_01_1-trim100-audio.vpy is used to restrore sound
 >This will show how to add a green mask from 50 to 60 in ASS
